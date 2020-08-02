@@ -202,18 +202,18 @@ ws-icon-8		= 9;
 ws-icon-9		= 10;
 ws-icon-default		= 
 
-;[module/mpd]
-;type = internal/mpd
-;format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
-;icon-prev = 
-;icon-stop = 
-;icon-play = 
-;icon-pause = 
-;icon-next = 
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
 
-;label-song-maxlen = 25
-;label-song-ellipsis = true
+label-song-maxlen = 25
+label-song-ellipsis = true
 
 [module/xbacklight]
 type = internal/xbacklight
