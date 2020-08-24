@@ -62,8 +62,8 @@ font-3 = DevaVu Sans Mono:pixelsize=13;1
 #font-3 = FontAwesome:style=Regular:pixelsize=17
 
 modules-left = bspwm i3
-modules-center = mpd pulseaudio xbacklight
-modules-right = filesystem xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-center = mpd pulseaudio xbacklight crypto1
+modules-right = updates-pacman-aurhelper filesystem xkeyboard memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -82,6 +82,9 @@ tray-padding = 2
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+; Separator in between workspaces
+; label-separator = |
 
 [module/xwindow]
 type = internal/xwindow
@@ -236,6 +239,25 @@ bar-empty-foreground = ${colors.foreground-alt}
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
+
+[module/crypto1]
+type = custom/script
+exec = echo 
+interval = 600
+click-left = urxvt -e cointop &
+; click-right = ~/polypar-scipts/notifycrypto.sh
+
+[module/crypto2]
+type = custom/script
+exec = ~/.config/polybar/pcrypto.py --base USD --coins btc etc xrp bat
+interval = 60
+
+font-4 = "coins:style=Regular;0"
+
+[module/updates-pacman-aurhelper]
+type = custom/script
+exec = ~/polybar-scripts/updates-pacman-aurhelper.sh
+interval = 600
 
 [module/cpu]
 type = internal/cpu
