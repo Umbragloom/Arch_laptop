@@ -62,7 +62,7 @@ font-3 = DevaVu Sans Mono:pixelsize=13;1
 #font-3 = FontAwesome:style=Regular:pixelsize=17
 
 modules-left = bspwm i3
-modules-center = mpd pulseaudio xbacklight crypto1
+modules-center = mpd pulseaudio xbacklight crypto1 crypto
 modules-right = updates-pacman-aurhelper filesystem xkeyboard memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
@@ -247,12 +247,17 @@ interval = 600
 click-left = urxvt -e cointop &
 ; click-right = ~/polypar-scipts/notifycrypto.sh
 
-[module/crypto2]
-type = custom/script
-exec = ~/.config/polybar/pcrypto.py --base USD --coins btc etc xrp bat
-interval = 60
+; [module/crypto2]
+; type = custom/script
+; exec = ~/.config/polybar/pcrypto.py --base USD --coins btc etc xrp bat
+; interval = 60
 
-font-4 = "coins:style=Regular;0"
+; [module/crypto]
+; type = custom/script
+; interval = 300
+; exec = /home/maggie/.config/polybar/crypto.py
+
+; font-4 = "coins:style=Regular;0"
 
 [module/updates-pacman-aurhelper]
 type = custom/script
