@@ -23,7 +23,6 @@ Plugin 'lervag/vimtex'
 Plugin 'itchyny/lightline.vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'junegunn/goyo.vim'
-Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'miyakogi/conoline.vim'
 
@@ -90,6 +89,9 @@ set number relativenumber
 
 " Show file stats
 set ruler
+
+" Vertically center document when entering insert mode
+autocmd InsertEnter * norm zz
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
