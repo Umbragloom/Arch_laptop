@@ -19,7 +19,6 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'lervag/vimtex'
 Plugin 'itchyny/lightline.vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'junegunn/goyo.vim'
@@ -112,7 +111,7 @@ set softtabstop=4
 set expandtab
 set noshiftround
 set autoindent
-
+set nofoldenable
 " Pasting
 set pastetoggle=<F2>
 
