@@ -127,8 +127,8 @@ nnoremap j gj
 nnoremap k gk
 
 " set jk to esc
-inoremap jk <esc>
-vnoremap jk <esc>
+inoremap jk <esc> 
+vnoremap jk <esc> 
 
 " disable arrow keys
 map <up> <nop>
@@ -144,6 +144,17 @@ nnoremap <C-H> <C-W><C-H>
 
 set splitbelow
 set splitright
+
+"custom
+nnoremap <leader>w :w<cr>
+nnoremap <leader>qq :q!<cr>
+nnoremap <leader>Q :wq<cr>
+
+"autoclose tags
+inoremap ( ()<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap " ""<Left>
 
 " Allow hidden buffers
 set hidden
