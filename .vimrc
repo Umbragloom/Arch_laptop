@@ -75,7 +75,7 @@ syntax on
 filetype plugin indent on
 
 " TODO: Pick a leader key
-let mapleader = " "
+let mapleader = "\<Space>"
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -98,7 +98,7 @@ set visualbell
 " Encoding
 set encoding=utf-8
 
-" Set font for devicons
+""Set font for devicons
 set guifont=DroidSansMono\ Nerd\ Font\ 11
 
 " Whitespace
