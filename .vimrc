@@ -15,6 +15,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'joshdick/onedark.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'godlygeek/tabular'
@@ -27,6 +29,10 @@ Plugin 'miyakogi/conoline.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'lervag/vimtex'
+Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+"Plugin 'severin-lemaignan/vim-minimap'
+
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -60,6 +66,9 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+"Pick a leader key
+let mapleader = "\<Space>"
+
 """"""""""""vim_markdown""""""""""""""""''
 let vim_markdown_preview_toggle=2
 let vim_markdown_preview_browser='Brave-browser'
@@ -70,15 +79,56 @@ let g:rainbow_active = 1
 """""""""conolinesettings"""""""""""""
 let g:conoline_use_colorscheme_default_normal=1
 
+""""""vimtex""""""""
+let g:tex_flavor = 'latex'
+nmap <silent> <Leader>lc :VimtexCompile<cr>
+vmap <silent> <Leader>ls :VimtexCompileSelected<cr>
+nmap <silent> <Leader>li :VimtexInfo<cr>
+nmap <silent> <Leader>lt :VimtexTocToggle<cr>
+nmap <silent> <Leader>lv :VimtexView<cr>
+
+""""""" Markdown preview""""""""
+nmap <Leader>md <Plug>MarkdownPreviewToggle
+
+""""" vim-minimap controls"""""
+"let g:minimap_show='<leader>ms'
+"let g:minimap_update='<leader>mu'
+"let g:minimap_close='<leader>mc'
+"let g:minimap_toggle='<leader>mt'
+
+""""""""""" Git keybinds""""""""""""
+" Git status
+nnoremap  <Leader>gs  :Gstatus<cr>
+" Git diff in split window
+nnoremap  <Leader>gd  :Gdiffsplit<cr>
+" Git commit
+nnoremap  <Leader>gc  :Gcommit<cr>
+" Git push 
+nnoremap  <Leader>gP  :Gpush<cr>
+" Git pull 
+nnoremap  <Leader>gp  :Gpull<cr>
+" Git move 
+nnoremap  <Leader>gm  :Gmove<cr>
+" Git merge 
+nnoremap  <Leader>gM  :Gmerge<cr>
+" browse current file on web
+nnoremap  <Leader>gb  :Gbrowse<cr>
+" browse current line on web
+nnoremap  <Leader>gbl  :CocCommand git.browserOpen<cr>
+" View chunk information in preview window. 
+nnoremap  <Leader>gh  :CocCommand git.chunkInfo<cr>
+" View commit information in preview window. 
+nnoremap  <Leader>gsc  :CocCommand git.showCommit<cr>
+" Toggle git gutter sign columns
+nnoremap  <Leader>gg  :CocCommand git.toggleGutters<cr>
+" Lazygit
+nnoremap <silent> <Leader>lg :call ToggleLazyGit()<CR>
 
 " Turn on syntax highlighting
 syntax on
 
 " For plugins to load correctly
 filetype plugin indent on
-
-" TODO: Pick a leader key
-let mapleader = "\<Space>"
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
