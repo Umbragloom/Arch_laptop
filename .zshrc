@@ -1,1 +1,0 @@
-/homw/maggie696/.zshrc
