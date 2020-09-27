@@ -24,6 +24,9 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'junegunn/goyo.vim'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'miyakogi/conoline.vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -202,7 +205,16 @@ map <C-n> :NERDTreeToggle<CR>
 
 let NERDTreeShowHidden=1
 
+" Your vimrc
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+set statusline+=%{GitStatus()}
+
+"autocmd vimenter * colorscheme gruvbox
 colorscheme onedark
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
-      \ }
+    \ 'colorscheme': 'onedark',
+    \ }
+
