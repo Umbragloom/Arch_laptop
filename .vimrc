@@ -32,7 +32,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'lervag/vimtex'
 Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 "Plugin 'severin-lemaignan/vim-minimap'
-
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'xuhdev/vim-latex-live-preview'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -86,6 +89,22 @@ vmap <silent> <Leader>ls :VimtexCompileSelected<cr>
 nmap <silent> <Leader>li :VimtexInfo<cr>
 nmap <silent> <Leader>lt :VimtexTocToggle<cr>
 nmap <silent> <Leader>lv :VimtexView<cr>
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = [
+      \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
+      \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
+      \ 're!\\hyperref\[[^]]*',
+      \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
+      \ 're!\\(include(only)?|input){[^}]*',
+      \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
+      \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
+      \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
+      \ ]
+""""
+let g:livepreview_previewer = 'zathura'
+let g:livepreview_engine = 'pdftex'
 
 """"""" Markdown preview""""""""
 nmap <Leader>md <Plug>MarkdownPreviewToggle
@@ -121,8 +140,14 @@ nnoremap  <Leader>gh  :CocCommand git.chunkInfo<cr>
 nnoremap  <Leader>gsc  :CocCommand git.showCommit<cr>
 " Toggle git gutter sign columns
 nnoremap  <Leader>gg  :CocCommand git.toggleGutters<cr>
+
 " Lazygit
 nnoremap <silent> <Leader>lg :call ToggleLazyGit()<CR>
+
+" Turn off YCM
+nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
+" Turn on YCM
+nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>
 
 " Turn on syntax highlighting
 syntax on
@@ -167,6 +192,8 @@ set autoindent
 set nofoldenable
 " Pasting
 set pastetoggle=<F2>
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Cursor motion
 set scrolloff=3
