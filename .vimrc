@@ -36,6 +36,9 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'itchyny/calendar.vim'
+
+
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
