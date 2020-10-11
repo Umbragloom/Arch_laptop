@@ -31,14 +31,14 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'lervag/vimtex'
 Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-"Plugin 'severin-lemaignan/vim-minimap'
+Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'ycm-core/YouCompleteMe'
-Plugin 'xuhdev/vim-latex-live-preview'
+"Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'itchyny/calendar.vim'
-
-
+Plugin 'sirver/ultisnips'
+"Plugin 'vim-latex/vim-latex'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -86,37 +86,25 @@ let g:rainbow_active = 1
 let g:conoline_use_colorscheme_default_normal=1
 
 """"""vimtex""""""""
-let g:tex_flavor = 'latex'
-nmap <silent> <Leader>lc :VimtexCompile<cr>
-vmap <silent> <Leader>ls :VimtexCompileSelected<cr>
-nmap <silent> <Leader>li :VimtexInfo<cr>
-nmap <silent> <Leader>lt :VimtexTocToggle<cr>
-nmap <silent> <Leader>lv :VimtexView<cr>
-if !exists('g:ycm_semantic_triggers')
-  let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = [
-      \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
-      \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
-      \ 're!\\hyperref\[[^]]*',
-      \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
-      \ 're!\\(include(only)?|input){[^}]*',
-      \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
-      \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
-      \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
-      \ ]
-""""
-let g:livepreview_previewer = 'zathura'
-let g:livepreview_engine = 'pdftex'
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+"Utilisnips for latex
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 """"""" Markdown preview""""""""
 nmap <Leader>md <Plug>MarkdownPreviewToggle
 
 """"" vim-minimap controls"""""
-"let g:minimap_show='<leader>ms'
-"let g:minimap_update='<leader>mu'
-"let g:minimap_close='<leader>mc'
-"let g:minimap_toggle='<leader>mt'
+let g:minimap_show='<leader>ms'
+let g:minimap_update='<leader>mu'
+let g:minimap_close='<leader>mc'
+let g:minimap_toggle='<leader>mt'
 
 """"""""""" Git keybinds""""""""""""
 " Git status
