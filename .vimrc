@@ -30,15 +30,11 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'lervag/vimtex'
-Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'ycm-core/YouCompleteMe'
-"Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'itchyny/calendar.vim'
-Plugin 'sirver/ultisnips'
-"Plugin 'vim-latex/vim-latex'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -75,30 +71,12 @@ filetype plugin indent on    " required
 "Pick a leader key
 let mapleader = "\<Space>"
 
-""""""""""""vim_markdown""""""""""""""""''
-let vim_markdown_preview_toggle=2
-let vim_markdown_preview_browser='Brave-browser'
-
 """""""""""vim-rainbow"""""""""""""""""""
 let g:rainbow_active = 1
 
 """""""""conolinesettings"""""""""""""
 let g:conoline_use_colorscheme_default_normal=1
 
-""""""vimtex""""""""
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
-
-"Utilisnips for latex
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
-""""""" Markdown preview""""""""
-nmap <Leader>md <Plug>MarkdownPreviewToggle
 
 """"" vim-minimap controls"""""
 let g:minimap_show='<leader>ms'
