@@ -231,6 +231,11 @@ bindsym XF86AudioPrev exec playerctl previous
 #set i3 lock screen
 bindsym $mod+x exec /home/maggie696/lock.sh
 
+
+# Moving workspaces between screens
+bindsym $mod+p move workspace to output left
+
+
 # assigning programs to  open on certain workstations
 assign [class="^URxvt$"] → $ws1
 assign [class="Brave"] → $ws2
