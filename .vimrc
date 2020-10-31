@@ -37,6 +37,8 @@ Plugin 'itchyny/calendar.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'vim-latex/vim-latex'
 Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'lervag/vimtex'
+
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
