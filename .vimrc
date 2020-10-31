@@ -158,6 +158,7 @@ set statusline+=\ %{LinterStatus()}n
 """LaTeX live preview"""
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_cursorhold_recompile = 0
+map I :! pdflatex %<CR><CR>
 
 " Turn on syntax highlighting
 syntax on
