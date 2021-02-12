@@ -63,7 +63,7 @@ font-4 = Inconsolata Nerd Font Mono:size=13;3
 
 modules-left = bspwm i3
 modules-center = mpd pulseaudio xbacklight crypto1 crypto
-modules-right = updates-pacman-aurhelper xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = filesystem xkeyboard memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
