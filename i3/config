@@ -1,11 +1,4 @@
 
-# i3 config file (v4)
-#
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-#
-# This config file uses keycodes (bindsym) and was written for the QWERTY
-# layout.
-#
 # To get a config file with the same key positions, but for your current
 # layout, use the i3-config-wizard
 #
@@ -258,6 +251,7 @@ assign [class="gimp"] → $ws8
 assign [class="Gimp"] → $ws8
 assign [class="org.inkscape.Inkscape"] → $ws8
 assign [class="Inkscape"] → $ws8
+assign [class="discord"]] → $ws9
 
 #set wallpaper randomly on startup
 exec --no-startup-id feh  --recursive --bg-fill ~/Wallpapers/NGE-1.png
