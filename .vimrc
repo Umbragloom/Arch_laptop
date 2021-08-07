@@ -154,6 +154,7 @@ set statusline+=%=
 set statusline+=\ %{LinterStatus()}n
 
 """LaTeX live preview"""
+let g:livepreview_engine = 'xelatex'
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_cursorhold_recompile = 0
 map I :! pdflatex %<CR><CR>
