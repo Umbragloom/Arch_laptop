@@ -32,14 +32,11 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
-Plugin 'ycm-core/YouCompleteMe'
 Plugin 'itchyny/calendar.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'vim-latex/vim-latex'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'lervag/vimtex'
-Plugin 'Shougo/ddc.vim'
-Plugin 'vim-denops/denops.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
