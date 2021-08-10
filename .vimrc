@@ -1,6 +1,8 @@
 " Don't try to be vi compatible
 set nocompatible
 
+""Plugin Things""
+
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
@@ -37,6 +39,8 @@ Plugin 'dense-analysis/ale'
 Plugin 'vim-latex/vim-latex'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'lervag/vimtex'
+Plugin 'nathanaelkane/vim-indent-guides'
+
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -70,6 +74,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+
 "Pick a leader key
 let mapleader = "\<Space>"
 
@@ -78,7 +83,6 @@ let g:rainbow_active = 1
 
 """""""""conolinesettings"""""""""""""
 let g:conoline_use_colorscheme_default_normal=1
-
 
 """"" vim-minimap controls"""""
 let g:minimap_show='<leader>ms'
@@ -112,6 +116,7 @@ nnoremap  <Leader>gsc  :CocCommand git.showCommit<cr>
 " Toggle git gutter sign columns
 nnoremap  <Leader>gg  :CocCommand git.toggleGutters<cr>
 
+
 " Lazygit
 nnoremap <silent> <Leader>lg :call ToggleLazyGit()<CR>
 
@@ -120,38 +125,6 @@ nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
 " Turn on YCM
 nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>
 
-
-""""""""""
-"Ale Commands"
-let g:ale_linters = {
-      \   'python': ['flake8', 'pylint'],
-      \   'ruby': ['standardrb', 'rubocop'],
-      \   'javascript': ['eslint'],
-      \}
-let g:ale_fixers = {
-      \    'python': ['yapf'],
-      \}
-nmap <F10> :ALEFix<CR>
-let g:ale_fix_on_save = 1
-""""""""
-function! LinterStatus() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-
-  return l:counts.total == 0 ? '✨ all good ✨' : printf(
-        \   '😞 %dW %dE',
-        \   all_non_errors,
-        \   all_errors
-        \)
-endfunction
-
-set statusline=
-set statusline+=%m
-set statusline+=\ %f
-set statusline+=%=
-set statusline+=\ %{LinterStatus()}n
 
 """LaTeX live preview"""
 let g:livepreview_engine = 'xelatex'
@@ -163,7 +136,7 @@ map I :! pdflatex %<CR><CR>
 syntax on
 
 " For plugins to load correctly
-filetype plugin indent on
+"filetype plugin indent on
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -193,6 +166,7 @@ set guifont=DroidSansMono\ Nerd\ Font\ 11
 let g:tex_flavor='latex'
 
 " Whitespace
+
 set wrap
 set textwidth=79
 set formatoptions=tcqrn1
@@ -203,6 +177,7 @@ set expandtab
 set noshiftround
 set autoindent
 set nofoldenable
+set foldmethod=manual
 " Pasting
 set pastetoggle=<F2>
 set colorcolumn=80
@@ -281,6 +256,23 @@ map <leader>q gqip
 
 "Set Spell
 set spell
+
+"Folding Things
+inoremap <F9> <C-O>za
+nnoremap <F9> za
+onoremap <F9> <C-C>za
+vnoremap <F9> zf
+
+"Make views automatic
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
+"indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+
 
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
