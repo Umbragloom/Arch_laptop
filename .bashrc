@@ -5,6 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+figlet -f Bloody "UMBRAGLOOM" |lolcat
+
 alias ls='ls -al --color=auto'
 PS1='[\u@\h \W]\$ '
 
