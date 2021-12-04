@@ -79,6 +79,8 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+GITSTATUS_LOG_LEVEL=DEBUG
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
