@@ -187,7 +187,7 @@ bindsym $mod+r mode "resize"
 exec i3-config-wizard
 
 #exec compton
-exec --no-startup-id compton --config /home/maggie/.config/compton.conf
+exec --no-startup-id compton --config /home/umbragloom/.config/compton.conf
 
 #set title bars off
 for_window [class="^.*"] border pixel 0
@@ -216,7 +216,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 #set i3 lock screen
-bindsym $mod+x exec /home/maggie696/lock.sh
+# bindsym $mod+x exec /home/umbragloom/lock.sh
 
 
 # Moving workspaces between screens
