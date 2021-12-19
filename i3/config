@@ -216,7 +216,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 #set i3 lock screen
-# bindsym $mod+x exec /home/umbragloom/lock.sh
+ bindsym $mod+x exec /home/umbragloom/lock.sh
 
 
 # Moving workspaces between screens
