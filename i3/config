@@ -263,4 +263,4 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 bindsym $mod+d exec rofi -show run
 
 #autolock screen
-exec xautolock -time 1 -locker '~/lock.sh' &
+#
