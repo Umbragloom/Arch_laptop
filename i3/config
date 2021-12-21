@@ -225,23 +225,10 @@ bindsym $mod+p move workspace to output left
 # assigning programs to  open on certain workstations
 assign [class="^URxvt$"] → $ws1
 assign [class="Brave"] → $ws2
-assign [class="scribus"] → $ws3
-assign [class="manuskript"] → $ws3
-assign [class="marktext"] → $ws3
-assign [class="TeXstudio"]  → $ws3
-assign [class="texstuido-3.0.1-x86_64_679ba0fd2c377603a28d825b97fdcb0c.AppImage"]  → $ws3
-assign [class="Oni2_editor"]  → $ws3
-assign [class="solvespace"] → $ws4
-assign [class="Solvespace"] → $ws4
-assign [class="librecad"] → $ws4
-assign [class="LibreCAD"] → $ws4
-assign [class="FreeCAD"] → $ws4
 assign [class="kicad"] → $ws5
 assign [class="KiCad"] → $ws5
 assign [class="caneda"] → $ws5
 assign [class="Caneda"] → $ws5
-assign [class="Qucs-S-0.0.22_x86_64_913234766372edbf466cc05d897ca93e.AppImage"] → $ws5
-assign [class="Waveform FREE"] → $ws6
 assign [class="audacity"] → $ws6
 assign [class="Audacity"] → $ws6
 assign [class="obs"] → $ws7
