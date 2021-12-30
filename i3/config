@@ -193,8 +193,8 @@ exec --no-startup-id compton --config /home/umbragloom/.config/compton.conf
 for_window [class="^.*"] border pixel 0
 
 #gaps set up
-gaps inner 4
-gaps outer 1
+gaps inner 6
+gaps outer 3
 smart_gaps on
 
 # Pulse Audio controls
