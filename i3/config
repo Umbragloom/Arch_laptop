@@ -273,3 +273,5 @@ mode "move" {
 # setting to start xfce power manager to keep laptop up full time. 
 exec_always --no-startup-id xfce4-power-manager
 
+# auto exicute picom
+exec --no-startup-id picom -b
