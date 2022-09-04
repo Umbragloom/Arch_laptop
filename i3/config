@@ -274,4 +274,4 @@ mode "move" {
 exec_always --no-startup-id xfce4-power-manager
 
 # auto exicute picom
-exec --no-startup-id picom -b
+exec --no-startup-id picom --config ~/.dotfiles/Arch_laptop/Picom/picom.conf
