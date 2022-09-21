@@ -1,168 +1,123 @@
-" Don't try to be vi compatible
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
+"               
+"               ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
+"               ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
+"               ██║   ██║██║██╔████╔██║██████╔╝██║     
+"               ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║     
+"                ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
+"                 ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
+"               
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
+
+"Vim Base Settings --------------------------------------------------------{{{
+
+" Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
-""Plugin Things""
+" Enable type file detection. Vim will be able to try to detect the type of file is use.
+filetype on
 
-" Helps force plugins to load correctly when it is turned back on below
-filetype off
+" Enable plugins and load plugin for the detected file type.
+filetype plugin on
 
-call plug#begin()
-" The default plugin directory will be as follows:
-"   - Vim (Linux/macOS): '~/.vim/plugged'
-"   - Vim (Windows): '~/vimfiles/plugged'
-"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
-" You can specify a custom plugin directory by passing it as the argument
-"   - e.g. `call plug#begin('~/.vim/plugged')`
-"   - Avoid using standard Vim directory names like 'plugin'
+" Load an indent file for the detected file type.
+filetype indent on
 
-" Make sure you use single quotes
-
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'joshdick/onedark.vim'
-Plug 'cespare/vim-toml'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'itchyny/lightline.vim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'junegunn/goyo.vim'
-Plug 'frazrepo/vim-rainbow'
-Plug 'miyakogi/conoline.vim'
-Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'severin-lemaignan/vim-minimap'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'itchyny/calendar.vim'
-Plug 'dense-analysis/ale'
-Plug 'vim-latex/vim-latex'
-Plug 'xuhdev/vim-latex-live-preview'
-Plug 'lervag/vimtex'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-
-
-" Initialize plugin system
-call plug#end()
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-
-"Pick a leader key
-let mapleader = "\<Space>"
-
-"""""""""""vim-rainbow"""""""""""""""""""
-let g:rainbow_active = 1
-
-"""""""""conolinesettings"""""""""""""
-let g:conoline_use_colorscheme_default_normal=1
-
-""""" vim-minimap controls"""""
-let g:minimap_show='<leader>ms'
-let g:minimap_update='<leader>mu'
-let g:minimap_close='<leader>mc'
-let g:minimap_toggle='<leader>mt'
-
-""""""""""" Git keybinds""""""""""""
-" Git status
-nnoremap  <Leader>gs  :Gstatus<cr>
-" Git diff in split window
-nnoremap  <Leader>gd  :Gdiffsplit<cr>
-" Git commit
-nnoremap  <Leader>gc  :Gcommit<cr>
-" Git push 
-nnoremap  <Leader>gP  :Gpush<cr>
-" Git pull 
-nnoremap  <Leader>gp  :Gpull<cr>
-" Git move 
-nnoremap  <Leader>gm  :Gmove<cr>
-" Git merge 
-nnoremap  <Leader>gM  :Gmerge<cr>
-" browse current file on web
-nnoremap  <Leader>gb  :Gbrowse<cr>
-" browse current line on web
-nnoremap  <Leader>gbl  :CocCommand git.browserOpen<cr>
-" View chunk information in preview window. 
-nnoremap  <Leader>gh  :CocCommand git.chunkInfo<cr>
-" View commit information in preview window. 
-nnoremap  <Leader>gsc  :CocCommand git.showCommit<cr>
-" Toggle git gutter sign columns
-nnoremap  <Leader>gg  :CocCommand git.toggleGutters<cr>
-
-
-" Lazygit
-nnoremap <silent> <Leader>lg :call ToggleLazyGit()<CR>
-
-" Turn off YCM
-nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
-" Turn on YCM
-nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>
-
-
-"""LaTeX live preview"""
-let g:livepreview_engine = 'xelatex'
-let g:livepreview_previewer = 'zathura'
-let g:livepreview_cursorhold_recompile = 0
-map I :! pdflatex %<CR><CR>
-
-" Turn on syntax highlighting
+" Turn syntax highlighting on.
 syntax on
 
-" For plugins to load correctly
-"filetype plugin indent on
-
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-" Security
-set modelines=0
-
-" Show line numbers
+" Add numbers to the file.
 set number relativenumber
 
-" Show file stats
+" Highlight cursor line underneath the cursor horizontally.
+set cursorline
+
+" Highlight cursor line underneath the cursor vertically.
+set cursorcolumn
+
+" Set shift width to 4 spaces.
+set shiftwidth=4
+
+" Set tab width to 4 columns.
+set tabstop=4
+
+" Use space characters instead of tabs.
+set expandtab
+
+" Do not save backup files.
+set nobackup
+
+" Do not let cursor scroll below or above N number of lines when scrolling.
+set scrolloff=10
+
+" Do not wrap lines. Allow long lines to extend as far as the line goes.
+set nowrap
+
+" While searching though a file incrementally highlight matching characters as you type.
+set incsearch
+
+" Ignore capital letters during search.
+set ignorecase
+
+" Override the ignorecase option if searching for capital letters.
+" This will allow you to search specifically for capital letters.
+set smartcase
+
+" Show partial command you type in the last line of the screen.
+set showcmd
+
+" Show the mode you are on the last line.
+set showmode
+
+" Show matching words during a search.
+set showmatch
+
+" Use highlighting when doing a search.
+set hlsearch
+
+" Set the commands to save in history default number is 20.
+set history=1000
+
+" Enable auto completion menu after pressing TAB.
+set wildmenu
+
+" Make wildmenu behave like similar to Bash completion.
+set wildmode=list:longest
+
+" There are certain files that we would never want to edit with Vim.
+" Wildmenu will ignore files with these extensions.
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+"Secuirty
+set modelines=0
+
+"Show File Stats
 set ruler
 
 " Vertically center document when entering insert mode
 autocmd InsertEnter * norm zz
 
-" Blink cursor on error instead of beeping (grr)
+"Blinking cursor on error
 set visualbell
 
-" Encoding
+"encoding
 set encoding=utf-8
 
-""Set font for devicons
-set guifont=DroidSansMono\ Nerd\ Font\ 11
+"Set Wrap
+set wrap
 
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
+" Show line numbers
+set number relativenumber
 
 " Whitespace
 
 set wrap
 set textwidth=79
 set formatoptions=tcqrn1
-set tabstop=4
-set shiftwidth=4
 set softtabstop=4
-set expandtab
 set noshiftround
 set autoindent
-set nofoldenable
-set foldmethod=manual
+
 " Pasting
 set pastetoggle=<F2>
 set colorcolumn=80
@@ -258,19 +213,110 @@ let g:indent_guides_auto_colors = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 
+" }}}
 
-" Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
+" PLUGINS ---------------------------------------------------------------- {{{
 
-let NERDTreeShowHidden=1
+call plug#begin('~/.vim/plugged')
+
+
+
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'joshdick/onedark.vim'
+Plug 'cespare/vim-toml'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'itchyny/lightline.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/goyo.vim'
+Plug 'frazrepo/vim-rainbow'
+Plug 'miyakogi/conoline.vim'
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/calendar.vim'
+Plug 'dense-analysis/ale'
+Plug 'vim-latex/vim-latex'
+Plug 'xuhdev/vim-latex-live-preview'
+Plug 'lervag/vimtex'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
+
+call plug#end()
+
+" }}}
+
+" Plugin settings ---------------------------------------------------------{{{
+
+
+"""""""""""vim-rainbow"""""""""""""""""""
+let g:rainbow_active = 1
+
+"""""""""conolinesettings"""""""""""""
+let g:conoline_use_colorscheme_default_normal=1
+
+""""" vim-minimap controls"""""
+let g:minimap_show='<leader>ms'
+let g:minimap_update='<leader>mu'
+let g:minimap_close='<leader>mc'
+let g:minimap_toggle='<leader>mt'
+
+""""""""""" Git keybinds""""""""""""
+" Git status
+nnoremap  <Leader>gs  :Gstatus<cr>
+" Git diff in split window
+nnoremap  <Leader>gd  :Gdiffsplit<cr>
+" Git commit
+nnoremap  <Leader>gc  :Gcommit<cr>
+" Git push 
+nnoremap  <Leader>gP  :Gpush<cr>
+" Git pull 
+nnoremap  <Leader>gp  :Gpull<cr>
+" Git move 
+nnoremap  <Leader>gm  :Gmove<cr>
+" Git merge 
+nnoremap  <Leader>gM  :Gmerge<cr>
+" browse current file on web
+nnoremap  <Leader>gb  :Gbrowse<cr>
+" browse current line on web
+nnoremap  <Leader>gbl  :CocCommand git.browserOpen<cr>
+" View chunk information in preview window. 
+nnoremap  <Leader>gh  :CocCommand git.chunkInfo<cr>
+" View commit information in preview window. 
+nnoremap  <Leader>gsc  :CocCommand git.showCommit<cr>
+" Toggle git gutter sign columns
+nnoremap  <Leader>gg  :CocCommand git.toggleGutters<cr>
+
+
+" Lazygit
+nnoremap <silent> <Leader>lg :call ToggleLazyGit()<CR>
+
+" Turn off YCM
+nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
+" Turn on YCM
+nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>
+
+
+"""LaTeX live preview"""
+let g:livepreview_engine = 'xelatex'
+let g:livepreview_previewer = 'zathura'
+let g:livepreview_cursorhold_recompile = 0
+map I :! pdflatex %<CR><CR>
+
+
+""Set font for devicons
+set guifont=DroidSansMono\ Nerd\ Font\ 11
+
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
 
 " Your vimrc
 function! GitStatus()
@@ -279,7 +325,6 @@ function! GitStatus()
 endfunction
 set statusline+=%{GitStatus()}
 
-"autocmd vimenter * colorscheme gruvbox
 colorscheme onedark
 let g:lightline = {
     \ 'colorscheme': 'onedark',
@@ -288,3 +333,153 @@ let g:lightline = {
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_cursorhold_recompile = 0
 autocmd Filetype tex setl updatetime=1
+
+" }}}
+
+" MAPPINGS --------------------------------------------------------------- {{{
+
+" Set the backslash as the leader key.
+let mapleader = "\<Space>"
+
+" Press \\ to jump back to the last cursor position.
+nnoremap <leader>\ ``
+
+" Press \p to print the current file to the default printer from a Linux operating system.
+" View available printers:   lpstat -v
+" Set default printer:       lpoptions -d <printer_name>
+" <silent> means do not display output.
+nnoremap <silent> <leader>p :%w !lp<CR>
+
+" Press the space bar to type the : character in command mode.
+nnoremap <space> :
+
+" Pressing the letter o will open a new line below the current one.
+" Exit insert mode after creating a new line above or below the current line.
+nnoremap o o<esc>
+nnoremap O O<esc>
+
+" Center the cursor vertically when moving to the next word during a search.
+nnoremap n nzz
+nnoremap N Nzz
+
+" Yank from cursor to the end of line.
+nnoremap Y y$
+
+" Map the F5 key to run a Python script inside Vim.
+" We map F5 to a chain of commands here.
+" :w saves the file.
+" <CR> (carriage return) is like pressing the enter key.
+" !clear runs the external clear screen command.
+" !python3 % executes the current file with Python.
+nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
+
+" You can split the window in Vim by typing :split or :vsplit.
+" Navigate the split view easier by pressing CTRL+j, CTRL+k, CTRL+h, or CTRL+l.
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Resize split windows using arrow keys by pressing:
+" CTRL+UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
+noremap <c-up> <c-w>+
+noremap <c-down> <c-w>-
+noremap <c-left> <c-w>>
+noremap <c-right> <c-w><
+
+" NERDTree specific mappings.
+" Map the F3 key to toggle NERDTree open and close.
+nnoremap <F3> :NERDTreeToggle<cr>
+
+" Have nerdtree ignore certain files and directories.
+let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
+
+" }}}
+
+" VIMSCRIPT -------------------------------------------------------------- {{{
+
+" Enable the marker method of folding.
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" If the current file type is HTML, set indentation to 2 spaces.
+autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
+
+" If Vim version is equal to or greater than 7.3 enable undofile.
+" This allows you to undo changes to a file even after saving it.
+if version >= 703
+    set undodir=~/.vim/backup
+    set undofile
+    set undoreload=10000
+endif
+
+" You can split a window into sections by typing `:split` or `:vsplit`.
+" Display cursorline and cursorcolumn ONLY in active window.
+augroup cursor_off
+    autocmd!
+    autocmd WinLeave * set nocursorline nocursorcolumn
+    autocmd WinEnter * set cursorline cursorcolumn
+augroup END
+
+" If GUI version of Vim is running set these options.
+if has('gui_running')
+
+    " Set the background tone.
+    set background=dark
+
+    " Set the color scheme.
+    colorscheme molokai
+
+    " Set a custom font you have installed on your computer.
+    " Syntax: <font_name>\ <weight>\ <size>
+    set guifont=Monospace\ Regular\ 12
+
+    " Display more of the file by default.
+    " Hide the toolbar.
+    set guioptions-=T
+
+    " Hide the the left-side scroll bar.
+    set guioptions-=L
+
+    " Hide the the left-side scroll bar.
+    set guioptions-=r
+
+    " Hide the the menu bar.
+    set guioptions-=m
+
+    " Hide the the bottom scroll bar.
+    set guioptions-=b
+
+    " Map the F4 key to toggle the menu, toolbar, and scroll bar.
+    " <Bar> is the pipe character.
+    " <CR> is the enter key.
+    nnoremap <F4> :if &guioptions=~#'mTr'<Bar>
+        \set guioptions-=mTr<Bar>
+        \else<Bar>
+        \set guioptions+=mTr<Bar>
+        \endif<CR>
+
+endif
+
+" }}}
+
+" STATUS LINE ------------------------------------------------------------ {{{
+
+" Clear status line when vimrc is reloaded.
+set statusline=
+
+" Status line left side.
+set statusline+=\ %F\ %M\ %Y\ %R
+
+" Use a divider to separate the left side from the right side.
+set statusline+=%=
+
+" Status line right side.
+"set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
+
+" Show the status on the second to last line.
+set laststatus=2
+
+" }}}
