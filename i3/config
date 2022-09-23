@@ -278,3 +278,6 @@ exec_always --no-startup-id xfce4-power-manager
 # auto exicute picom
 exec_always --no-startup-id picom --config ~/.config/picom.conf -cCGF -b --vsync --no-use-damage
 
+#network manager tray
+exec --no-startup-id nm-applet --sm-disable
+
