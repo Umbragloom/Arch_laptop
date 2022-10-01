@@ -50,7 +50,7 @@ font-11 = Inconsolata Nerd Font Mono:size=12;3
 
 modules-left = arrow_l1 arrow_l2 i3 arrow_i3 i3_index arrow_i3_index i3_icon i3_name arrow_i3_name
 modules-center = middle1 middle0 middle1 day middle2 date_symbols middle3 time middle4 middle5 middle4
-modules-right =  arrow_r4 arrow_r3 wlan arrow_r2 volume arrow_r1 ram_symbol ram arrow_r2 cpu_symbol cpu arrow_r1 filesystem_symbol filesystem arrow_r2 battery arrow_r1 temperature_symbol temperature
+modules-right =  arrow_r4 arrow_r3  wlan arrow_r2 volume arrow_r1 ram_symbol ram arrow_r2 cpu_symbol cpu arrow_r1 filesystem_symbol filesystem arrow_r2 battery arrow_r1 temperature_symbol temperature
 
 tray-position = left
 tray-background = ${colors.mid}
@@ -397,24 +397,33 @@ ramp-9 = " "
  battery = BAT1                                                                  
  adapter = ACAD                                                                  
  full-at = 100                                                                   
- 
+
+format-adapter-background = ${colors.mid}
+format-adapter-foreground = ${colors.light}
+format-label-charging-background = ${colors.light}
+format-label-charging-foreground = ${colors.mid}
+
  format-charging = <animation-charging> <label-charging>                         
- format-charging-underline = ${colors.mid}
+ format-charging-underline = ${colors.light}
+ format-charging-background = ${colors.light}
+ format-charging-foreground = ${colors.mid}
 
  format-full-prefix = "%{T9}%%{T-}"                                                   
  format-full-prefix-foreground = ${colors.mid}                        
+ format-full-background = ${colors.light}
  format-full-underline = ${colors.mid}
 
 format-ramp-capacity-background = ${colors.mid}
-format-ramp-capacity-foreground = ${colors.mid}
+format-ramp-capacity-foreground = ${colors.light}
 format-ramp-capacity-urgent = ${colors.mid}
 
  ramp-capacity-0 = %{T10}%{T-}                                              
- ramp-capacity-1 =%{T9}%{T-}%{T10}%{T-}                                               
- ramp-capacity-2 = %{T9}%{T-}%{T10}%{T-}                                              
- ramp-capacity-3 = %{T9}%{T-}%{T10}%{T-}                                              
- ramp-capacity-4 = %{T9}%{T-}%{T10}%{T-}                                              
- ramp-capacity-5 =  
+ ramp-capacity-1 =%{T9}%{T-}%{T10}%{T-}
+ ramp-capacity-2 =%{T9}%{T-}%{T10}%{T-}
+ ramp-capacity-3 = %{T9}%{T-}%{T10}%{T-}                                          
+ ramp-capacity-4 = %{T9}%{T-}%{T10}%{T-}                                          
+ ramp-capacity-5 = %{T9}%{T-}%{T10}%{T-}                                      
+ ramp-capacity-6 =  
 
  format-discharging = <ramp-capacity> <label-discharging>
  format-discharging-underline = ${self.format-charging-underline}
@@ -422,13 +431,23 @@ format-ramp-capacity-urgent = ${colors.mid}
  format-discharging-foreground = ${colors.mid}
 
 
-animation-charging-0 =                                                         
-animation-charging-1 =                                                         
-animation-charging-2 =                                                         
-animation-charging-foreground = ${colors.mid}                        
-animation-charging-background = ${colors.light}
+; animation-charging-0 =                                                         
+; animation-charging-1 =                                                         
+; animation-charging-2 =                                                         
+; animation-charging-foreground = ${colors.mid}                        
+; animation-charging-background = ${colors.light}
 animation-charging-framerate = 750 
 
+
+animation-charging-0 = %{T10}%{T-}                                              
+animation-charging-1 = %{T9}%{T-}%{T10}%{T-}                                        
+animation-charging-2 = %{T9}%{T-}%{T10}%{T-} 
+animation-charging-3 = %{T9}%{T-}%{T10}%{T-}                                      
+animation-charging-4 = %{T9}%{T-}%{T10}%{T-}                                      
+animation-charging-5 = %{T9}%{T-}%{T10}%{T-}                                      
+animation-charging-6 =  
+
+ 
 
 ;-------------------------------------------------------------------------------
 ;	S E T T I N G S
