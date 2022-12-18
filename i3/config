@@ -161,10 +161,10 @@ mode "resize" {
         bindsym $right      resize grow width 10 px or 10 ppt
 
         # same bindings,2 but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
+        #bindsym Left        resize shrink width 10 px or 10 ppt
+        #bindsym Down        resize grow height 10 px or 10 ppt
+        #bindsym Up          resize shrink height 10 px or 10 ppt
+        #bindsym Right       resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -276,8 +276,16 @@ mode "move" {
 exec_always --no-startup-id xfce4-power-manager
 
 # auto exicute picom
-exec_always --no-startup-id picom --config ~/.config/picom.conf -cCGF -b --vsync --no-use-damage
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -cCGF -b --vsync --no-use-damage
 
 #network manager tray
 exec --no-startup-id nm-applet --sm-disable
+
+# For screenshots install :
+# apt-get install maim xclip copyq
+
+##  Screenshots in files
+bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-all.png"
+bindsym $mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-current.png"
+bindsym Shift+Print exec --no-startup-id maim --format=png --select "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-selected.png"
 
