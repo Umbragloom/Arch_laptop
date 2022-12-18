@@ -48,9 +48,9 @@ font-9 = "Font Awesome 6 Free:style=Regular:pixelsize=12;1"
 font-10 = "Font Awesome 6 Brands:pixelsize=12;1"   
 font-11 = Inconsolata Nerd Font Mono:size=12;3
 
-modules-left = arrow_l1 arrow_l2 i3 arrow_i3 i3_index arrow_i3_index i3_icon i3_name arrow_i3_name
-modules-center = middle1 middle0 middle1 day middle2 date_symbols middle3 time middle4 middle5 middle4
-modules-right =  arrow_r4 arrow_r3  wlan arrow_r2 volume arrow_r1 ram_symbol ram arrow_r2 cpu_symbol cpu arrow_r1 filesystem_symbol filesystem arrow_r2 battery arrow_r1 temperature_symbol temperature
+modules-left = arrow_l1 xbacklight arrow_l2 pac-updates aur-updates arrow_l1 date arrow_l2 i3 arrow_i3 i3_index spacex arrow_i3_index i3_icon i3_name arrow_i3_name
+modules-center = middle1 middle0 middle1 day middle2 date_symbols middle3 middle4 middle5 middle4
+modules-right =  arrow_r4 arrow_r3  wlan arrow_r2 volume arrow_r1 ram_symbol ram arrow_r2 cpu_symbol cpu arrow_r1 filesystem_symbol filesystem arrow_r2 battery arrow_r1 temperature_symbol temperature arrow_r2 
 
 tray-position = left
 tray-background = ${colors.mid}
@@ -408,9 +408,11 @@ format-label-charging-foreground = ${colors.mid}
  format-charging-background = ${colors.light}
  format-charging-foreground = ${colors.mid}
 
- format-full-prefix = "%{T9}%%{T-}"                                                   
- format-full-prefix-foreground = ${colors.mid}                        
+ format-full-prefix = %{T9}%%{T-}                                                   
+ format-full-prefix-foreground = ${colors.mid}
+ format-full-prefix-background = ${colors.light}
  format-full-background = ${colors.light}
+ format-full-foreground = ${colors.mid}
  format-full-underline = ${colors.mid}
 
 format-ramp-capacity-background = ${colors.mid}
@@ -418,8 +420,8 @@ format-ramp-capacity-foreground = ${colors.light}
 format-ramp-capacity-urgent = ${colors.mid}
 
  ramp-capacity-0 = %{T10}%{T-}                                              
- ramp-capacity-1 =%{T9}%{T-}%{T10}%{T-}
- ramp-capacity-2 =%{T9}%{T-}%{T10}%{T-}
+ ramp-capacity-1 = %{T9}%{T-}%{T10}%{T-}
+ ramp-capacity-2 = %{T9}%{T-}%{T10}%{T-}
  ramp-capacity-3 = %{T9}%{T-}%{T10}%{T-}                                          
  ramp-capacity-4 = %{T9}%{T-}%{T10}%{T-}                                          
  ramp-capacity-5 = %{T9}%{T-}%{T10}%{T-}                                      
@@ -434,8 +436,8 @@ format-ramp-capacity-urgent = ${colors.mid}
 ; animation-charging-0 =                                                         
 ; animation-charging-1 =                                                         
 ; animation-charging-2 =                                                         
-; animation-charging-foreground = ${colors.mid}                        
-; animation-charging-background = ${colors.light}
+ animation-charging-foreground = ${colors.mid}                        
+ animation-charging-background = ${colors.light}
 animation-charging-framerate = 750 
 
 
@@ -447,7 +449,119 @@ animation-charging-4 = %{T9}%{T-}%{T10}%{T-}
 animation-charging-5 = %{T9}%{T-}%{T10}%{T-}                                      
 animation-charging-6 =  
 
- 
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+; Default: 1.0
+interval = 1.0
+
+; See "https://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %m-%d-%Y%
+
+; Optional time format
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+; date-alt = %A, %d %B %Y
+; time-alt = %H:%M:%S
+
+; Available tags:
+;   <label> (default)
+format= 🕓 <label>
+format-background = #47f794
+format-foreground = #d600ff
+
+; Available tokens:
+;   %date%
+;   %time%
+; Default: %date%
+label = %time%
+; label-font = 3
+label-foreground = #d600ff
+label-background = #47f794
+
+[module/xbacklight]
+type = internal/xbacklight
+card = intel_backlight
+4enable-scroll = true
+
+format = <bar>
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+label-background = #47f794
+label-foreground = #d600ff
+
+; Only applies if <ramp> is used
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
+; Only applies if <bar> is used
+bar-width = 6
+bar-indicator = |
+bar-indicator-foreground = #ff0000
+bar-indicator-background = #47f794
+bar-fill =  
+bar-fill-font = 2
+bar-fill-foreground = #d600ff
+bar-fill-background = #47f794
+bar-empty = 
+bar-empty-font = 2
+bar-empty-foreground = #0abdc6
+bar-empty-background = #47f794
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/news]
+type = custom/script
+tail = true
+intervalj = 5
+format-prefix = "  "
+format = <label>
+4label-padding = 1
+exec = ~/.config/polybar/scripts/news/scroll_news_status.sh
+
+[module/news-grab]
+type = custom/script
+exec = ~/.config/polybar/scripts/news/news.py
+interval = 900
+format-background = #d600ff
+
+[module/pac-updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates-pacman.sh
+interval = 200
+format-background = #d600ff
+format-foreground = #47f794
+
+[module/aur-updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates-aur.sh
+interval = 200
+format-background = #d600ff
+format-foreground = #47f794
+label-padding = 1
+click-left = "$TERMINAL yay -Syu"
+
+[module/spacex]
+type = custom/script
+exec = ~/.config/polybar/scripts/notification-spacex.sh
+interval = 400
+format-background = #47f794
+format-foreground = d600ff
+label-padding = 1
+label-font = 4
+
 
 ;-------------------------------------------------------------------------------
 ;	S E T T I N G S
