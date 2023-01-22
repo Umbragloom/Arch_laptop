@@ -239,7 +239,8 @@ assign [class="org.inkscape.Inkscape"] → $ws8
 assign [class="Inkscape"] → $ws8
 assign [class="Discord"] → $ws9
 assign [class="Mtgdb.Gui v4.1.1.2"] → $ws10
-
+assign [class="Sonic Pi"] → $ws6
+assign [class="Godot"] → $ws5
 
 #set wallpaper randomly on startup
 exec --no-startup-id feh  --recursive --bg-fill ~/Wallpapers/NGE-1.png
