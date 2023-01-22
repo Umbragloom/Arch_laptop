@@ -8,5 +8,5 @@ Dotfiles for certain programs on my Arch Linux Laptop.
 4. .bash_profile
 5. .bashrc
 6. .vimrc
-7. GRUB
+7. neovim
 
