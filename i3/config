@@ -243,6 +243,14 @@ assign [class="Sonic Pi"] → $ws6
 assign [class="Godot"] → $ws3
 assign [class="Aseprite"] → $ws3
 assign [class="Blender"] → $ws3
+assign [class="blender"] → $ws3
+assign [class="obsidian"] → $ws4
+assign [class="jetbrains-pycharm-ce"] → $ws3
+assign [class="Onivim"] → $ws3
+
+# window specific items
+for_window[instance="Godot_Editor"] floating disable
+for_window[instance="Godot_Engine"] floating enable
 
 #set wallpaper randomly on startup
 exec --no-startup-id feh  --recursive --bg-fill ~/Wallpapers/NGE-1.png
