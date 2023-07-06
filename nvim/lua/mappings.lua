@@ -1,6 +1,6 @@
 local km = vim.keymap
 
-km.set("n", "<leader>u", ":PackerSync<CR>", { desc = "Packer Update (Sync)" })
+km.set("n", "<leader>uu", ":PackerSync<CR>", { desc = "Packer Update (Sync)" })
 km.set("n", "<leader>n", "<cmd>enew<CR>", { desc = "New File" })
 km.set("n", "<leader>a", "ggVG<c-$>", { desc = "Select All" })
 km.set({"i", "v"}, "jk", "<Esc>", { desc = "Exit with jk" })
@@ -33,6 +33,47 @@ km.set("n", "<C-h>", "<C-w>h", {desc = "move windows to the left"})
 km.set("n", "<C-j>", "<C-w>j", {desc = "move windows to the down"})
 km.set("n", "<C-k>", "<C-w>k", {desc = "move windows to the up"})
 km.set("n", "<C-l>", "<C-w>l", {desc = "move windows to the right"})
+
+
+-- Keybindings for telescope
+km.set("n", "<leader>fr", "<CMD>Telescope oldfiles<CR>")
+km.set("n", "<leader>ff", "<CMD>Telescope find_files<CR>")
+km.set("n", "<leader>fb", "<CMD>Telescope file_browser<CR>")
+km.set("n", "<leader>fw", "<CMD>Telescope live_grep<CR>")
+km.set("n", "<leader>ht", "<CMD>Telescope colorscheme<CR>")
+
+
+-- F5 processes the document once, and refreshes the view
+km.set('i','<F5>', function() require("knap").process_once() end)
+km.set('v','<F5>', function() require("knap").process_once() end)
+km.set('n','<F5>', function() require("knap").process_once() end)
+
+-- F6 closes the viewer application, and allows settings to be reset
+km.set('i','<F6>', function() require("knap").close_viewer() end)
+km.set('v','<F6>', function() require("knap").close_viewer() end)
+km.set('n','<F6>', function() require("knap").close_viewer() end)
+
+-- F7 toggles the auto-processing on and off
+km.set('i','<F7>', function() require("knap").toggle_autopreviewing() end)
+km.set('v','<F7>', function() require("knap").toggle_autopreviewing() end)
+km.set('n','<F7>', function() require("knap").toggle_autopreviewing() end)
+
+-- F8 invokes a SyncTeX forward search, or similar, where appropriate
+km.set('i','<F8>', function() require("knap").forward_jump() end)
+km.set('v','<F8>', function() require("knap").forward_jump() end)
+km.set('n','<F8>', function() require("knap").forward_jump() end)
+km.set('n', '<leader>ec', ':e ~/.config/nvim/init.lua<CR>')
+km.set('n', '<leader>pl', ':e ~/.config/nvim/lua/plugins.lua<CR>')
+km.set('n', '<leader>mp', ':e ~/.config/nvim/lua/mappings.lua<CR>')
+
+
+--vim-godot
+
+km.set("n", "<F4>", ":GodotRunLast", {desc = "Run last godot scene"})
+km.set("n", "<F5>", ":GodotRun", {desc = "Run Godot Game"})
+km.set("n", "<F6>", ":GodotRunCurrent", {desc = "Run current scenene"})
+km.set("n", "<F7>", ":GodotRunFZF", {desc = "Run godot fuzzy finder"})
+
 
 -- prime's keymaps
 km.set("v", "J", ":m '>+1<CR>gv=gv", {desc = "Move highlighted items with j, auto tab"})

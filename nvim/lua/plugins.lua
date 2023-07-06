@@ -82,17 +82,13 @@ return packer.startup(function(use)
 
 
   use({
-    "glepnir/dashboard-nvim",
-    config = get_setup("dashboard"),
-  })
-
-  use({
     "kdheepak/lazygit.nvim",
     config = get_setup("lazygit"),
   })
+
   use({ "kyazdani42/nvim-web-devicons" })
 
-  use({
+ use({
     "nvim-telescope/telescope.nvim",
     requires = {
       { "nvim-lua/plenary.nvim" },
@@ -112,7 +108,7 @@ return packer.startup(function(use)
   })
 
   use({
-    "noib3/nvim-cokeline",
+    "willothy/nvim-cokeline",
     requires = "kyazdani42/nvim-web-devicons",
     config = get_setup("cokeline"),
   })
@@ -120,12 +116,15 @@ return packer.startup(function(use)
   use({ "theprimeagen/harpoon",
     config = get_setup("harpoon"),
   })
-  use({ "mbbill/undotree",
+
+ use({ "mbbill/undotree",
     config = get_setup("undotree"),
   })
+
   use({ "tpope/vim-fugitive",
     config = get_setup("fugitive"),
   })
+
   use({
     "VonHeikemen/lsp-zero.nvim",
     requires = {
@@ -144,15 +143,68 @@ return packer.startup(function(use)
 
       -- Snippets
       { 'L3MON4D3/LuaSnip' },
-      { 'rafamadriz/friendly-snippets' },
+     { 'rafamadriz/friendly-snippets' },
     },
-    config = get_setup("lsp"),
+ config = get_setup("lsp"),
   })
 
   use({ "sindrets/diffview.nvim",
       requires = "nvim-lua/plenary.nvim",
       config = get_setup("diffview")
     })
+
+  use({ "frabjous/knap",
+      config = get_setup("knap")
+   })
+
+  use({"gentlelionstudios/gentledark.vim",
+    })
+
+  use({"xfyuan/nightforest.nvim",
+    config = get_setup("nightforest"),
+    })
+
+  use({ "CallumHoward/vim-neodark",
+    })
+
+  use({ "JoosepAlviste/palenightfall.nvim",
+    })
+
+  use({ "nyoom-engineering/oxocarbon.nvim",
+    })
+
+  use({ "tiagovla/tokyodark.nvim",
+      config = get_setup("tokyodark"),
+    })
+
+  use({ "hachy/eva01.vim",
+      config = get_setup("eva01"),
+    })
+
+  use({
+    "numToStr/Comment.nvim",
+    config = get_setup("comment"),
+    })
+
+  use({ "alec-gibson/nvim-tetris",
+    })
+
+  use({ "p00f/nvim-ts-rainbow",
+      config = get_setup("ts-rainbow"),
+    })
+
+  use({ "francoiscabrol/ranger.vim",
+     requires = "rbgrouleff/bclose.vim",
+    })
+
+  use({ "goolord/alpha-nvim",
+    config = get_setup("alpha"),
+  })
+
+  use({ "habamax/vim-godot",
+    config = get_setup("vim-godot"),
+  })
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

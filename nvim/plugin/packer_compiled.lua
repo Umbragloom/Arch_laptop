@@ -74,6 +74,12 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    config = { 'require("setup/comment")' },
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   ["FTerm.nvim"] = {
     config = { 'require("setup/Fterm")' },
     loaded = true,
@@ -84,6 +90,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["alpha-nvim"] = {
+    config = { 'require("setup/alpha")' },
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
+  },
+  ["bclose.vim"] = {
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/bclose.vim",
+    url = "https://github.com/rbgrouleff/bclose.vim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -110,22 +127,27 @@ _G.packer_plugins = {
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["dashboard-nvim"] = {
-    config = { 'require("setup/dashboard")' },
-    loaded = true,
-    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
-    url = "https://github.com/glepnir/dashboard-nvim"
-  },
   ["diffview.nvim"] = {
     config = { 'require("setup/diffview")' },
     loaded = true,
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
+  ["eva01.vim"] = {
+    config = { 'require("setup/eva01")' },
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/eva01.vim",
+    url = "https://github.com/hachy/eva01.vim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["gentledark.vim"] = {
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/gentledark.vim",
+    url = "https://github.com/gentlelionstudios/gentledark.vim"
   },
   ["gitsigns.nvim"] = {
     config = { 'require("setup/gitsigns")' },
@@ -138,6 +160,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
+  },
+  knap = {
+    config = { 'require("setup/knap")' },
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/knap",
+    url = "https://github.com/frabjous/knap"
   },
   ["lazygit.nvim"] = {
     config = { 'require("setup/lazygit")' },
@@ -169,6 +197,12 @@ _G.packer_plugins = {
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["nightforest.nvim"] = {
+    config = { 'require("setup/nightforest")' },
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/nightforest.nvim",
+    url = "https://github.com/xfyuan/nightforest.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -178,7 +212,7 @@ _G.packer_plugins = {
     config = { 'require("setup/cokeline")' },
     loaded = true,
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/nvim-cokeline",
-    url = "https://github.com/noib3/nvim-cokeline"
+    url = "https://github.com/willothy/nvim-cokeline"
   },
   ["nvim-colorizer.lua"] = {
     config = { 'require("setup/colorizer")' },
@@ -190,6 +224,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-tetris"] = {
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/nvim-tetris",
+    url = "https://github.com/alec-gibson/nvim-tetris"
   },
   ["nvim-tree.lua"] = {
     config = { 'require("setup/nvim-tree")' },
@@ -203,6 +242,12 @@ _G.packer_plugins = {
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-ts-rainbow"] = {
+    config = { 'require("setup/ts-rainbow")' },
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
+    url = "https://github.com/p00f/nvim-ts-rainbow"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -214,10 +259,20 @@ _G.packer_plugins = {
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/onedark.nvim",
     url = "https://github.com/navarasu/onedark.nvim"
   },
+  ["oxocarbon.nvim"] = {
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
+    url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["palenightfall.nvim"] = {
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/palenightfall.nvim",
+    url = "https://github.com/JoosepAlviste/palenightfall.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -228,6 +283,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["ranger.vim"] = {
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/ranger.vim",
+    url = "https://github.com/francoiscabrol/ranger.vim"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
@@ -240,6 +300,12 @@ _G.packer_plugins = {
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tokyodark.nvim"] = {
+    config = { 'require("setup/tokyodark")' },
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/tokyodark.nvim",
+    url = "https://github.com/tiagovla/tokyodark.nvim"
+  },
   undotree = {
     config = { 'require("setup/undotree")' },
     loaded = true,
@@ -251,6 +317,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-godot"] = {
+    config = { 'require("setup/vim-godot")' },
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/vim-godot",
+    url = "https://github.com/habamax/vim-godot"
+  },
+  ["vim-neodark"] = {
+    loaded = true,
+    path = "/home/umbragloom/.local/share/nvim/site/pack/packer/start/vim-neodark",
+    url = "https://github.com/CallumHoward/vim-neodark"
   },
   ["vim-polyglot"] = {
     loaded = true,
@@ -266,70 +343,98 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require("setup/gitsigns")
-time([[Config for gitsigns.nvim]], false)
--- Config for: vim-fugitive
-time([[Config for vim-fugitive]], true)
-require("setup/fugitive")
-time([[Config for vim-fugitive]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 require("setup/nvim-tree")
 time([[Config for nvim-tree.lua]], false)
--- Config for: dashboard-nvim
-time([[Config for dashboard-nvim]], true)
-require("setup/dashboard")
-time([[Config for dashboard-nvim]], false)
--- Config for: diffview.nvim
-time([[Config for diffview.nvim]], true)
-require("setup/diffview")
-time([[Config for diffview.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require("setup/treesitter")
-time([[Config for nvim-treesitter]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 require("setup/telescope")
 time([[Config for telescope.nvim]], false)
--- Config for: lazygit.nvim
-time([[Config for lazygit.nvim]], true)
-require("setup/lazygit")
-time([[Config for lazygit.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-require("setup/which-key")
-time([[Config for which-key.nvim]], false)
--- Config for: nvim-cokeline
-time([[Config for nvim-cokeline]], true)
-require("setup/cokeline")
-time([[Config for nvim-cokeline]], false)
--- Config for: lsp-zero.nvim
-time([[Config for lsp-zero.nvim]], true)
-require("setup/lsp")
-time([[Config for lsp-zero.nvim]], false)
--- Config for: onedark.nvim
-time([[Config for onedark.nvim]], true)
-require("setup/onedark")
-time([[Config for onedark.nvim]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-require("setup/colorizer")
-time([[Config for nvim-colorizer.lua]], false)
--- Config for: FTerm.nvim
-time([[Config for FTerm.nvim]], true)
-require("setup/Fterm")
-time([[Config for FTerm.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require("setup/treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: tokyodark.nvim
+time([[Config for tokyodark.nvim]], true)
+require("setup/tokyodark")
+time([[Config for tokyodark.nvim]], false)
+-- Config for: nvim-ts-rainbow
+time([[Config for nvim-ts-rainbow]], true)
+require("setup/ts-rainbow")
+time([[Config for nvim-ts-rainbow]], false)
+-- Config for: vim-fugitive
+time([[Config for vim-fugitive]], true)
+require("setup/fugitive")
+time([[Config for vim-fugitive]], false)
+-- Config for: diffview.nvim
+time([[Config for diffview.nvim]], true)
+require("setup/diffview")
+time([[Config for diffview.nvim]], false)
 -- Config for: harpoon
 time([[Config for harpoon]], true)
 require("setup/harpoon")
 time([[Config for harpoon]], false)
+-- Config for: vim-godot
+time([[Config for vim-godot]], true)
+require("setup/vim-godot")
+time([[Config for vim-godot]], false)
 -- Config for: undotree
 time([[Config for undotree]], true)
 require("setup/undotree")
 time([[Config for undotree]], false)
+-- Config for: nightforest.nvim
+time([[Config for nightforest.nvim]], true)
+require("setup/nightforest")
+time([[Config for nightforest.nvim]], false)
+-- Config for: FTerm.nvim
+time([[Config for FTerm.nvim]], true)
+require("setup/Fterm")
+time([[Config for FTerm.nvim]], false)
+-- Config for: nvim-cokeline
+time([[Config for nvim-cokeline]], true)
+require("setup/cokeline")
+time([[Config for nvim-cokeline]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require("setup/which-key")
+time([[Config for which-key.nvim]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+require("setup/alpha")
+time([[Config for alpha-nvim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+require("setup/colorizer")
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+require("setup/comment")
+time([[Config for Comment.nvim]], false)
+-- Config for: eva01.vim
+time([[Config for eva01.vim]], true)
+require("setup/eva01")
+time([[Config for eva01.vim]], false)
+-- Config for: onedark.nvim
+time([[Config for onedark.nvim]], true)
+require("setup/onedark")
+time([[Config for onedark.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require("setup/gitsigns")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: knap
+time([[Config for knap]], true)
+require("setup/knap")
+time([[Config for knap]], false)
+-- Config for: lazygit.nvim
+time([[Config for lazygit.nvim]], true)
+require("setup/lazygit")
+time([[Config for lazygit.nvim]], false)
+-- Config for: lsp-zero.nvim
+time([[Config for lsp-zero.nvim]], true)
+require("setup/lsp")
+time([[Config for lsp-zero.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
